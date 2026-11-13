@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Coach",
+    "description": "Prompt templates, a live draft meter, a handoff nudge and a setup-drift dot. No model calls, no prompt injection, no auto-send."
+  }
+}

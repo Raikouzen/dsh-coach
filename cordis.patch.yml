@@ -1,0 +1,27 @@
+# dsh-coach bundle patch.
+#
+# One row: the host half owns the `coachSetup` session projection (setup drift,
+# context pressure, handoff ingredients), the `/handoff` and `/coach` slash
+# commands, and the single local route the composer chip uses to write a handoff
+# file. The client half registers five composer/header slots.
+#
+# Every feature is config-gated so a layer can be switched off without
+# uninstalling. Nothing here touches the system prompt.
+
+- insert:
+    - id: dsh-coach
+      name: 'dsh-coach'
+      config:
+        meter: true
+        templates: true
+        nudge: true
+        drift: true
+        # Context-pressure fractions of the compaction trigger.
+        amber: 0.7
+        red: 0.9
+        # Same arithmetic as dsh-compaction-basic: min(ratio * window,
+        # window - maxTokens - headroomTokens).
+        compactionRatio: 0.8
+        headroomTokens: 65536
+        handoffDir: '.dsh'
+        handoffMaxWords: 400

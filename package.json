@@ -1,0 +1,55 @@
+{
+  "name": "dsh-coach",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A quiet coach for prompt shape, session freshness and setup drift in DeepSeek Harness. No model calls, no prompt injection, no auto-send.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "docs/"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    },
+    "manifestVersion": 1
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "prompt",
+    "handoff",
+    "coach",
+    "context"
+  ],
+  "license": "MIT",
+  "author": "Raikouzen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raikouzen/dsh-coach.git"
+  },
+  "homepage": "https://github.com/Raikouzen/dsh-coach#readme",
+  "bugs": {
+    "url": "https://github.com/Raikouzen/dsh-coach/issues"
+  }
+}
